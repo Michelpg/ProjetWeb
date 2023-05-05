@@ -14,6 +14,7 @@
 </head>
 
 <body>
+<?php include('entete.php'); ?>
     <h1>Formulaire de saisie de login et de mot de passe</h1>
 
     <form action="connexion.php" method="post">
