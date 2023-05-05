@@ -1,24 +1,30 @@
-<?php  session_start(); 
-?>
-<h1>Formulaire d'inscription</h1>
-
-<form action="connexion.php" method="post">
-    
-    <table>
-        <tr>
-            <td><label for="pseudo">Pseudo</label></td>
-            <td><input type="text" name="pseudo" /></td>
-        </tr>
-        <tr>
-            <td><label for="mdp">Mot de passe</label></td>
-            <td><input type="password" name="mdp" /></td>
-        </tr>
-    </table>
-    <br />
-    <input type="reset" name="reset" value="Effacer" />
-    <input type="submit" name="submit" value="Valider" />
-    <input type="button" onclick=window.location.href='deco.php' name="submit" value="S'inscrire" />
-</form>
+<?php session_start(); ?>
 <?php
-header('location:acceuil.php');
+
+require("formconn.inc.php");
+$_SESSION['log']= $_POST['pseudo'];
+$_SESSION['mdp']=$_POST['mdp'];
+$log= $_SESSION['log'];
+$mdp= $_SESSION['mdp'];
+$select_query = "REQUETE SQL";
+$res = $pdo->query($select_query);
+$res->setFetchMode(PDO::FETCH_ASSOC);
+
+$user = $res->fetch();
+
+if ($user) {
+    
+    $pass = $user['mot_passe'];
+    
+    if ($pass===md5($mdp)) {
+        echo "Authentification réussi";
+        header('location:acceuil.php');
+    } else {
+        echo "mot de passe non valide";
+       header('location:form_auth.php');
+    }
+} else {
+    echo "login non valide";
+    header('location:form_auth.php');
+}
 ?>

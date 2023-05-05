@@ -24,6 +24,7 @@
                     <input type="button" onclick=window.location.href='form_auth.php' name="submit" value="Recette de saison" />
                     <input type="button" onclick=window.location.href='form_auth.php' name="submit" value="connexion" />
                     <input type="button" onclick=window.location.href='deco.php' name="submit" value="deconnexion" />
+                    <input type="button" onclick=window.location.href='form_Inscription.php' name="submit" value="inscription" />
 
               <form class="form-inline">
                 <input class="form-control_mr-sm-2" type="search" placeholder="Recherche ce que tu veut tant que ca a un rapport avec la nouriture" aria-label="Search">
