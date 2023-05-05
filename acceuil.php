@@ -13,7 +13,6 @@ if (isset ($_SESSION['log']))
     <div>
 	  <h1>Bienvenue sur Amphore !</h1>
 	  <p>Découvrez des recettes délicieuses et simples à réaliser chez vous.</p>
-
 	</div>
     <?php 
     if (!empty($log)) {
@@ -26,5 +25,8 @@ if (isset ($_SESSION['log']))
             <p class="card-text">Text</p>
         </div>
     </div>
+
+
+
     </body>
 </html>
