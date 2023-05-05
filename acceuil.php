@@ -10,9 +10,9 @@ if (isset ($_SESSION['log']))
     </head>
     <body>
     <?php include('entete.php'); ?>
-    <div class="jumbotron">
-	  <h1 class="display-4">Bienvenue sur Amphore !</h1>
-	  <p class="lead">Découvrez des recettes délicieuses et simples à réaliser chez vous.</p>
+    <div>
+	  <h1>Bienvenue sur Amphore !</h1>
+	  <p>Découvrez des recettes délicieuses et simples à réaliser chez vous.</p>
 
 	</div>
     <?php 
