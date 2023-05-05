@@ -1,9 +1,10 @@
 -- phpMyAdmin SQL Dump
+-- phpMyAdmin SQL Dump
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 05 mai 2023 à 13:20
+-- Généré le : ven. 05 mai 2023 à 13:25
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -30,8 +31,7 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `utilisateur`;
 CREATE TABLE IF NOT EXISTS `utilisateur` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(50) NOT NULL,
-  `prenom` varchar(50) NOT NULL,
+  `pseudo` varchar(50) NOT NULL,
   `mail` varchar(50) NOT NULL,
   `mdp` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
@@ -41,11 +41,9 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 -- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `mail`, `mdp`) VALUES
-(1, 'Keller', 'Pierre', 'abc@iq.com', ''),
-(2, 'CORNU', 'Lea', 'lea@cronu.com', 'qwerty'),
-(3, 'Keller', 'Pierre', 'abc@iq.com', ''),
-(4, 'CORNU', 'Lea', 'lea@cronu.com', 'qwerty');
+INSERT INTO `utilisateur` (`id`, `pseudo`, `mail`, `mdp`) VALUES
+(1, 'Keller', 'abc@iq.com', 'azerty'),
+(2, 'CORNU', 'lea@cronu.com', 'qwerty');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
