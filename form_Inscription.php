@@ -24,6 +24,3 @@
     <input type="submit" name="submit" value="Valider" />
     
 </form>
-<?php
-header('location:acceuil.php');
-?>
