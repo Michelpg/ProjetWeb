@@ -30,6 +30,7 @@
         <br />
         <input type="reset" name="reset" value="Effacer" />
         <input type="submit" name="submit" value="Valider" />
+        <input type="button" onclick=window.location.href='deco.php' name="submit" value="S'inscrire" />
     </form>
 
 </body>
