@@ -11,8 +11,8 @@
             <td><input type="text" name="pseudo" /></td>
         </tr>
         <tr>
-            <td><label for="mdp">mail</label></td>
-            <td><input type="text" name="mdp" /></td>
+            <td><label for="mail">mail</label></td>
+            <td><input type="text" name="mail" /></td>
         </tr>
         <tr>
             <td><label for="mdp">Mot de passe</label></td>
@@ -22,6 +22,7 @@
     <br />
     <input type="reset" name="reset" value="Effacer" />
     <input type="submit" name="submit" value="Valider" />
+    
 </form>
 <?php
 header('location:acceuil.php');

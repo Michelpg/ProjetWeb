@@ -26,6 +26,5 @@ if (isset ($_SESSION['log']))
             <p class="card-text">Text</p>
         </div>
     </div>
-    
     </body>
 </html>
