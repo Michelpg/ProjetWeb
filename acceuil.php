@@ -11,7 +11,7 @@ if (isset ($_SESSION['log']))
     </head>
     <body>
     <?php // include('entete.php'); ?>
-    <div style="height : 100px; display:flex">
+    <div style="height : 100px; display:flex;text-align:right;">
         <div>
             <h1>Bienvenue sur Amphore !</h1>
 	        <p>Découvrez des recettes délicieuses et simples à réaliser chez vous.</p>
@@ -19,23 +19,29 @@ if (isset ($_SESSION['log']))
         <div style="width:fit-content;">
             <img src="image_amphore_3.png" style=" max-width: 100%; max-height: 100%; float:right;">
         </div>
-	    </div>
+	</div>
     <?php 
     if (!empty($log)) {
     echo"Bonjour ",$log ;}?>
     
     <div>
         <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: black;">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#">Amphore</a>
             <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
                 aria-expanded="false" aria-label="Toggle navigation"></button>
             <div class="collapse navbar-collapse" id="collapsibleNavId">
                 <ul class="navbar-nav me-auto mt-2 mt-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+                        <a class="nav-link active" href="acceuil.php" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Se connecter</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">S'inscrire</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
