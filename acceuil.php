@@ -54,7 +54,7 @@ if (isset ($_SESSION['log']))
     </div>
 
 
-    <div>
+    <div style = "margin-top: 50px;">
 
         <!-- Div des card pour recette du jour, recette la mieux notée, etc  (page d'acceuil) !-->
         <div class="row">
