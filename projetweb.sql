@@ -42,8 +42,10 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 --
 
 INSERT INTO `utilisateur` (`id`, `pseudo`, `mail`, `mdp`) VALUES
-(1, 'Keller', 'abc@iq.com', 'azerty'),
-(2, 'CORNU', 'lea@cronu.com', 'qwerty');
+(1, 'Keller', 'abc@iq.com', 'ab4f63f9ac65152575886860dde480a1'),
+/*mdp:azerty*/
+(2, 'CORNU', 'lea@cronu.com', 'd8578edf8458ce06fbc5bb76a58c5ca4');
+/*mdp:qwerty*/
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
