@@ -4,8 +4,11 @@
 require("formconn.inc.php");
 $_SESSION['log']= $_POST['pseudo'];
 $_SESSION['mdp']=$_POST['mdp'];
+$_SESSION['mail']=$_POST['mail'];
+
 $log= $_SESSION['log'];
 $mdp= $_SESSION['mdp'];
+$mail= $_SESSION['mail'];
 $select_query = "REQUETE SQL";
 $res = $pdo->query($select_query);
 $res->setFetchMode(PDO::FETCH_ASSOC);
