@@ -6,7 +6,7 @@ $_SESSION['log']= $_POST['pseudo'];
 $_SESSION['mdp']=$_POST['mdp'];
 $log= $_SESSION['log'];
 $mdp= $_SESSION['mdp'];
-$select_query = "SELECT * FROM users WHERE login='$log';";
+$select_query = "SELECT * FROM utilisateur WHERE pseudo='$log';";
 $res = $pdo->query($select_query);
 $res->setFetchMode(PDO::FETCH_ASSOC);
 
@@ -16,7 +16,7 @@ if ($user) {
     
     $pass = $user['mot_passe'];
     
-    if ($pass===md5($mdp)) {
+    if ($pass===$mdp) {
         echo "Authentification réussi";
         header('location:acceuil.php');
     } else {

@@ -1,7 +1,7 @@
 <?php
 $username = "root"; // Utilisateur de la BD
 $password = ""; // Mot de passe
-$db_name = "exosphp_db"; // Nom de la BD
+$db_name = "projetweb"; // Nom de la BD
 try {
 $pdo = new PDO(
 "mysql:host=localhost;dbname=$db_name",

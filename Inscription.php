@@ -9,7 +9,7 @@ $_SESSION['mail']=$_POST['mail'];
 $log= $_SESSION['log'];
 $mdp= $_SESSION['mdp'];
 $mail= $_SESSION['mail'];
-$select_query = "REQUETE SQL";
+$select_query = "INSERT INTO `utilisateur` (`pseudo`, `mail`, `mdp`) VALUES ('$log', '$mail', '$mdp');";
 $res = $pdo->query($select_query);
 $res->setFetchMode(PDO::FETCH_ASSOC);
 

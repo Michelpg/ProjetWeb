@@ -1,3 +1,5 @@
+<?php  session_start(); 
+?>
 <!DOCTYPE html>
 
 <html>
@@ -7,6 +9,7 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
+    <?php include('entete.php'); ?>
 
 
 
