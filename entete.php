@@ -36,22 +36,26 @@ if (isset ($_SESSION['log']))
                     <li class="nav-item">
                         <a class="nav-link" href="#">Link</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="form_auth.php">Se connecter</a>
+                    <?php if (empty($log)) {echo "
+                    <li class='nav-item'>
+                        <a class='nav-link' href='form_auth.php'>Se connecter</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="form_Inscription.php">S'inscrire</a>
+                    <li class='nav-item'>
+                        <a class='nav-link' href='form_Inscription.php'>S'inscrire</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="deco.php">Deconexion</a>
+                    ";}?>
+                    <?php if (!empty($log)) {echo "
+                    <li class='nav-item'>
+                        <a class='nav-link' href='deco.php'>Deconexion</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownId">
-                            <a class="dropdown-item" href="#">Action 1</a>
-                            <a class="dropdown-item" href="#">Action 2</a>
+                     <li class='nav-item dropdown'>
+                        <a class='nav-link dropdown-toggle' href='#' id='dropdownId' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Mon compte</a>
+                        <div class='dropdown-menu' aria-labelledby='dropdownId'>
+                            <a class='dropdown-item' href='#'>Favoris</a>
+                            <a class='dropdown-item' href='#'>Mes recettes</a>
+                            <a class='dropdown-item' href='#'>Nouvelles recettes</a>
                         </div>
-                    </li>
+                    </li>";}?>
                 </ul>
                 <form action="recherche_recette.php" class="d-flex my-2 my-lg-0">
                     <input class="form-control me-sm-2" type="text" placeholder="Search">

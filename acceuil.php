@@ -17,7 +17,7 @@
         <!-- Div des card pour recette du jour, recette la mieux notée, etc  (page d'acceuil) !-->
         <div class="row">
           <div class="col-4">
-            <div class="card">
+            <div class="card" style = "margin-left: 5px;">
               <div class="card-body">
                 <h3 class="card-title" style="border-bottom: 1px solid silver;">Recette du jour</h3>
                 <img src="tiramisu.png">
@@ -37,7 +37,7 @@
             </div>
           </div>
           <div class="col-4">
-            <div class="card">
+            <div class="card" style=" margin-right: 5px; ">
               <div class="card-body">
                 <h3 class="card-title" style="border-bottom: 1px solid silver;">Recette notée récemment</h3>
                 <img src="tiramisu.png">
