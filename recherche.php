@@ -4,6 +4,8 @@
 require("formconn.inc.php");
 $_SESSION['recherche']= $_POST['recherche'];
 $recherche= $_SESSION['recherche'];
+if ($recherche!=''){
+    if ($recherche!=' '){
 $select_query = "SELECT * FROM recette WHERE nom LIKE'%$recherche%' OR description LIKE'%recherche%' OR temps LIKE'%$recherche%' OR ingredient LIKE'%$recherche%' OR difficulte LIKE'%$recherche%' OR cout LIKE'%$recherche%' OR nbr_pers LIKE'%$recherche%' OR ustensiles LIKE'%$recherche%' OR preparation LIKE'%$recherche%';";
 $res = $pdo->query($select_query);
 $res->setFetchMode(PDO::FETCH_ASSOC);
@@ -17,6 +19,11 @@ $_SESSION['nbr_pers_recette'] = $recette_bdd['nbr_pers'];
 $_SESSION['ustensiles_recette'] = $recette_bdd['ustensiles'];
 $_SESSION['preparation_recette'] = $recette_bdd['preparation'];
 $_SESSION['image_recette'] = $recette_bdd['image'];
+}else {
+    unset($_SESSION['nom_recette']); }
+
+}else{
+    unset($_SESSION['nom_recette']); }
 
 header('location:recherche_recette.php');
 ?>
