@@ -57,8 +57,8 @@ if (isset ($_SESSION['log']))
                         </div>
                     </li>";}?>
                 </ul>
-                <form action="recherche_recette.php" class="d-flex my-2 my-lg-0">
-                    <input class="form-control me-sm-2" type="text" placeholder="Search">
+                <form action="recherche.php" class="d-flex my-2 my-lg-0">
+                    <input class="form-control me-sm-2" type="text" placeholder="Search" name="recherche">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>

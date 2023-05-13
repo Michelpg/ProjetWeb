@@ -15,6 +15,7 @@ $res = $pdo->query($select_query);
 $res->setFetchMode(PDO::FETCH_ASSOC);
 
 $user = $res->fetch();
-
+session_unset(); 
+session_destroy(); 
 header('location:form_auth.php');
 ?>
