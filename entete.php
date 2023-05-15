@@ -51,7 +51,7 @@ if (isset ($_SESSION['log']))
                      <li class='nav-item dropdown'>
                         <a class='nav-link dropdown-toggle' href='#' id='dropdownId' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Mon compte</a>
                         <div class='dropdown-menu' aria-labelledby='dropdownId'>
-                            <a class='dropdown-item' href='#'>Favoris</a>
+                            <a class='dropdown-item' href='favoris.php'>Favoris</a>
                             <a class='dropdown-item' href='#'>Mes recettes</a>
                             <a class='dropdown-item' href='#'>Nouvelles recettes</a>
                         </div>
