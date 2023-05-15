@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 15 mai 2023 à 13:50
+-- Généré le : lun. 15 mai 2023 à 13:56
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -35,7 +35,15 @@ CREATE TABLE IF NOT EXISTS `favori` (
   PRIMARY KEY (`id_fav`),
   KEY `id_rec` (`id_rec`),
   KEY `id_uti` (`id_uti`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `favori`
+--
+
+INSERT INTO `favori` (`id_fav`, `id_rec`, `id_uti`) VALUES
+(1, 2, 7),
+(3, 1, 7);
 
 -- --------------------------------------------------------
 
