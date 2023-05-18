@@ -24,8 +24,9 @@ if (isset($_SESSION['id_rec'])){
         
         $processedIds[] = $idRec;
  echo "
+
 <div class='row'>
-<a href='recette.php', style='text-decoration:none'>
+<a href='recette.php?i=$i', style='text-decoration:none'>
   <div class='col-4'>
     <div class='card' style = 'margin-left: 5px;'>
       <div class='card-body'>
