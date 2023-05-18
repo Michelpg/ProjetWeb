@@ -26,7 +26,12 @@ if (isset($_SESSION['id_rec'])){
  echo "
 
 <div class='row'>
-<a href='recette.php?i=$i', style='text-decoration:none'>
+
+<form action='affichage_details_recette.php' method='post'>
+  <input type='hidden' name='i' value=".$i.">
+        <br />
+        <input type='submit' name='submit' value='choisire' />
+    </form>
   <div class='col-4'>
     <div class='card' style = 'margin-left: 5px;'>
       <div class='card-body'>
