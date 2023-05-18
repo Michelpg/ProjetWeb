@@ -10,17 +10,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     </head>
     <body>
-        <?php include('entete.php'); 
-        
-        //requete SQL
-        $requete_desc = "SELECT description FROM recette WHERE nom ='Navarin d'agneau'";
-        $res = $pdo->query($requete_desc);
-        $res->setFetchMode(PDO::FETCH_ASSOC);
-        $recette_bdd = $res->fetch();
-
-        $description_recette = $recette_bdd['description'];
-        $description_recette = $recette_bdd['description'];
-        ?>
+        <?php include('entete.php'); ?>
 
         <!-- Div titre et image -->
         <div style="text-align:center ; margin-bottom :10px ;"> 
