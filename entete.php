@@ -10,7 +10,13 @@ if (isset ($_SESSION['log']))
         
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-   
+   <style>
+   .card input {
+  width: 300px; 
+  height: 200px; 
+  object-fit: cover; 
+}
+</style>
     </head>
     <body>
     <div style="height : 100px; display:flex;text-align:right;">
@@ -53,7 +59,7 @@ if (isset ($_SESSION['log']))
                         <div class='dropdown-menu' aria-labelledby='dropdownId'>
                             <a class='dropdown-item' href='favoris.php'>Favoris</a>
                             <a class='dropdown-item' href='#'>Mes recettes</a>
-                            <a class='dropdown-item' href='#'>Nouvelles recettes</a>
+                            <a class='dropdown-item' href='nouvelle_recette.php'>Nouvelles recettes</a>
                         </div>
                     </li>";}?>
                 </ul>

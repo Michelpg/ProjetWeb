@@ -1,4 +1,12 @@
-<?php session_start(); ?>
+<?php session_start(); 
+$log = $_SESSION['log'];
+$mdp = $_SESSION['mdp'];
+
+session_unset();
+
+$_SESSION['log'] = $log;
+$_SESSION['mdp'] = $mdp;
+?>
 <?php
 require("formconn.inc.php");
 $_SESSION['recherche']= $_POST['recherche'];

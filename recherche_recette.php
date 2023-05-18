@@ -24,13 +24,19 @@ if (isset($_SESSION['id_rec'])){
         
         $processedIds[] = $idRec;
  echo "
-<div class='row'>
-<a href='recette.php', style='text-decoration:none'>
+
+<div class='row' style='padding-bottom: 10px;'>
+
+
   <div class='col-4'>
     <div class='card' style = 'margin-left: 5px;'>
       <div class='card-body'>
         <h3 class='card-title' style='border-bottom: 1px solid silver;''>".$_SESSION['nom'][$i]."</h3>
-        <img src='".$_SESSION['image'][$i]."'>
+        <form action='affichage_details_recette.php' method='post'>
+  <input type='hidden' name='i' value=".$i.">
+        <br />
+        <input type='image' src='".$_SESSION['image'][$i]."' alt='Bouton d'image' />
+    </form>
         <p class='card-text'>".$_SESSION['description'][$i]."</p>
       </div>
     </div>
