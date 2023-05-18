@@ -19,7 +19,7 @@ $description=$_SESSION['description_recette'];}
     <div style = "margin-top: 50px;">
 
 <!-- Div des card pour recette du jour, recette la mieux notée, etc  (page d'acceuil) !-->
-<?php if (!empty($Nom)) {echo "
+<?php if (empty($Nom)) {echo "
 <div class='row'>
   <div class='col-4'>
     <div class='card' style = 'margin-left: 5px;'>
@@ -33,7 +33,7 @@ $description=$_SESSION['description_recette'];}
 </div>
 </div>
 ";}?>
-<?php if (empty($Nom)) {echo "<h1>Pas de recette corespondant a la recherche<h1>";}?>
+<?php if (!empty($Nom)) {echo "<h1>Pas encore de favoris<h1>";}?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     </body>
 </html>

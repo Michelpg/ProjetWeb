@@ -1,10 +1,5 @@
 <?php  session_start(); ?>
-<?php
-if (isset ($_SESSION['nom_recette'])){
-$image=$_SESSION['image_recette'];
-$Nom=$_SESSION['nom_recette'];
-$description=$_SESSION['description_recette'];}
-?>
+
 <!DOCTYPE html>
 
 <html>
@@ -17,23 +12,33 @@ $description=$_SESSION['description_recette'];}
     <?php include('entete.php'); ?>
 
     <div style = "margin-top: 50px;">
+<?php
+$processedIds = array();
 
-<!-- Div des card pour recette du jour, recette la mieux notée, etc  (page d'acceuil) !-->
-<?php if (!empty($Nom)) {echo "
+if (isset($_SESSION['id_rec'])){
+    for ($i = 0; $i < count($_SESSION['id_rec']); $i++) {
+      $idRec = $_SESSION['id_rec'][$i];
+        if (in_array($idRec, $processedIds)) {
+            continue; 
+        }
+        
+        $processedIds[] = $idRec;
+ echo "
 <div class='row'>
+<a href='recette.php', style='text-decoration:none'>
   <div class='col-4'>
     <div class='card' style = 'margin-left: 5px;'>
       <div class='card-body'>
-        <h3 class='card-title' style='border-bottom: 1px solid silver;''>$Nom</h3>
-        <img src=' $image'>
-        <p class='card-text'>$description</p>
+        <h3 class='card-title' style='border-bottom: 1px solid silver;''>".$_SESSION['nom'][$i]."</h3>
+        <img src='".$_SESSION['image'][$i]."'>
+        <p class='card-text'>".$_SESSION['description'][$i]."</p>
       </div>
     </div>
   </div>
 </div>
 </div>
-";}?>
-<?php if (empty($Nom)) {echo "<h1>Pas de recette corespondant a la recherche<h1>";}?>
+";}
+ }else {echo "<h1>Pas de recette corespondant a la recherche<h1>";}?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     </body>
 </html>
