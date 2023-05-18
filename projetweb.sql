@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 18 mai 2023 à 14:24
+-- Généré le : jeu. 18 mai 2023 à 18:29
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `favori` (
   PRIMARY KEY (`id_fav`),
   KEY `id_rec` (`id_rec`),
   KEY `id_uti` (`id_uti`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `favori`
@@ -43,7 +43,33 @@ CREATE TABLE IF NOT EXISTS `favori` (
 
 INSERT INTO `favori` (`id_fav`, `id_rec`, `id_uti`) VALUES
 (1, 2, 7),
-(3, 1, 7);
+(3, 1, 7),
+(4, 4, 8),
+(5, 7, 8);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `mes_recettes`
+--
+
+DROP TABLE IF EXISTS `mes_recettes`;
+CREATE TABLE IF NOT EXISTS `mes_recettes` (
+  `id_mes` int(11) NOT NULL AUTO_INCREMENT,
+  `id_rec` int(11) NOT NULL,
+  `id_uti` int(11) NOT NULL,
+  PRIMARY KEY (`id_mes`),
+  KEY `id_rec` (`id_rec`),
+  KEY `id_uti` (`id_uti`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `mes_recettes`
+--
+
+INSERT INTO `mes_recettes` (`id_mes`, `id_rec`, `id_uti`) VALUES
+(1, 2, 7),
+(2, 7, 8);
 
 -- --------------------------------------------------------
 
@@ -63,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `recette` (
   `nbr_pers` int(11) NOT NULL,
   `ustensiles` text NOT NULL,
   `preparation` text NOT NULL,
-  `note` float NOT NULL,
+  `note` float DEFAULT NULL,
   `image` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_rec`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
@@ -95,14 +121,16 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `mail` varchar(50) NOT NULL,
   `mdp` varchar(50) NOT NULL,
   PRIMARY KEY (`id_uti`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `utilisateur`
 --
 
 INSERT INTO `utilisateur` (`id_uti`, `pseudo`, `mail`, `mdp`) VALUES
-(7, 'hugo', 'hugo@mail.com', '81dc9bdb52d04dc20036dbd8313ed055');
+(7, 'hugo', 'hugo@mail.com', '81dc9bdb52d04dc20036dbd8313ed055'),
+(8, 'user', 'user@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055'),
+(10, 'test', 'test@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055');
 
 --
 -- Contraintes pour les tables déchargées
@@ -114,6 +142,13 @@ INSERT INTO `utilisateur` (`id_uti`, `pseudo`, `mail`, `mdp`) VALUES
 ALTER TABLE `favori`
   ADD CONSTRAINT `favori_ibfk_1` FOREIGN KEY (`id_rec`) REFERENCES `recette` (`id_rec`),
   ADD CONSTRAINT `favori_ibfk_2` FOREIGN KEY (`id_uti`) REFERENCES `utilisateur` (`id_uti`);
+
+--
+-- Contraintes pour la table `mes_recettes`
+--
+ALTER TABLE `mes_recettes`
+  ADD CONSTRAINT `mes_recettes_ibfk_1` FOREIGN KEY (`id_rec`) REFERENCES `recette` (`id_rec`),
+  ADD CONSTRAINT `mes_recettes_ibfk_2` FOREIGN KEY (`id_uti`) REFERENCES `utilisateur` (`id_uti`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
