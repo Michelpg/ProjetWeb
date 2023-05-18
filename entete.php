@@ -59,7 +59,7 @@ if (isset ($_SESSION['log']))
                         <div class='dropdown-menu' aria-labelledby='dropdownId'>
                             <a class='dropdown-item' href='favoris.php'>Favoris</a>
                             <a class='dropdown-item' href='#'>Mes recettes</a>
-                            <a class='dropdown-item' href='#'>Nouvelles recettes</a>
+                            <a class='dropdown-item' href='nouvelle_recette.php'>Nouvelles recettes</a>
                         </div>
                     </li>";}?>
                 </ul>
