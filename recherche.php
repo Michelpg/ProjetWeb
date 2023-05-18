@@ -1,29 +1,38 @@
 <?php session_start(); ?>
 <?php
-
 require("formconn.inc.php");
 $_SESSION['recherche']= $_POST['recherche'];
 $recherche= $_SESSION['recherche'];
 if ($recherche!=''){
     if ($recherche!=' '){
-$select_query = "SELECT * FROM recette WHERE nom LIKE'%$recherche%' OR description LIKE'%recherche%' OR temps LIKE'%$recherche%' OR ingredient LIKE'%$recherche%' OR difficulte LIKE'%$recherche%' OR cout LIKE'%$recherche%' OR nbr_pers LIKE'%$recherche%' OR ustensiles LIKE'%$recherche%' OR preparation LIKE'%$recherche%';";
-$res = $pdo->query($select_query);
-$res->setFetchMode(PDO::FETCH_ASSOC);
-$recette_bdd = $res->fetch();
-$_SESSION['nom_recette'] = $recette_bdd['nom'];
-$_SESSION['description_recette'] = $recette_bdd['description'];
-$_SESSION['ingredient_recette'] = $recette_bdd['ingredient'];
-$_SESSION['difficulte_recette'] = $recette_bdd['difficulte'];
-$_SESSION['cout_recette'] = $recette_bdd['cout'];
-$_SESSION['nbr_pers_recette'] = $recette_bdd['nbr_pers'];
-$_SESSION['ustensiles_recette'] = $recette_bdd['ustensiles'];
-$_SESSION['preparation_recette'] = $recette_bdd['preparation'];
-$_SESSION['image_recette'] = $recette_bdd['image'];
+$sql = "SELECT * FROM recette WHERE nom LIKE'%$recherche%' OR description LIKE'%recherche%' OR temps LIKE'%$recherche%' OR ingredient LIKE'%$recherche%' OR difficulte LIKE'%$recherche%' OR cout LIKE'%$recherche%' OR nbr_pers LIKE'%$recherche%' OR ustensiles LIKE'%$recherche%' OR preparation LIKE'%$recherche%';";
+$row = $pdo->query($sql);
+$results = $row->fetchAll(PDO::FETCH_ASSOC);
+
+if ($results) {
+    foreach ($results as $res) {
+        $_SESSION['id_rec'][] = $res["id_rec"];
+        $_SESSION['nom'][] = $res["nom"];
+        $_SESSION['description'][] = $res["description"];
+        $_SESSION['temps'][] = $res["temps"];
+        $_SESSION['ingredient'][] = $res["ingredient"];
+        $_SESSION['difficulte'][] = $res["difficulte"];
+        $_SESSION['cout'][] = $res["cout"];
+        $_SESSION['nbr_pers'][] = $res["nbr_pers"];
+        $_SESSION['ustensiles'][] = $res["ustensiles"];
+        $_SESSION['preparation'][] = $res["preparation"];
+        $_SESSION['note'][] = $res["note"];
+        $_SESSION['image'][] = $res["image"];
+        
+    }
+} else {
+    echo "Aucun résultat trouvé.";
+}
 }else {
     unset($_SESSION['nom_recette']); }
 
 }else{
     unset($_SESSION['nom_recette']); }
-
 header('location:recherche_recette.php');
+
 ?>

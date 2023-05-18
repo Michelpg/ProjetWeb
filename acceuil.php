@@ -11,7 +11,6 @@
     <?php  include('entete.php'); ?>
     
 
-
     <div style = "margin-top: 50px;">
 
         <!-- Div des card pour recette du jour, recette la mieux notée, etc  (page d'acceuil) !-->
