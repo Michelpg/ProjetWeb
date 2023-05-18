@@ -1,24 +1,38 @@
-<?php session_start(); ?>
-<?php
+<?php 
+session_start();
+?>
+<!DOCTYPE html>
 
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <link rel="stylesheet" href="">
+    <title>Mes recettes favorites</title>
+    </head>
+    <body>
+    <?php include('entete.php'); ?>
+
+    <div style = "margin-top: 50px;">
+<?php
 require("formconn.inc.php");
-$_SESSION['favoris']= $_POST['favoris'];
-$favoris= $_SESSION['favoris'];
-if ($favoris!=''){
-    if ($favoris!=' '){
+
 $select_query = "SELECT recette.nom, recette.description, recette.image FROM favori INNER JOIN recette ON favori.id_rec = recette.id_rec;";
 $res = $pdo->query($select_query);
 $res->setFetchMode(PDO::FETCH_ASSOC);
-$recette_bdd = $res->fetch();
+$recettes_favorites = $res->fetchAll();
 
-$_SESSION['nom_recette'] = $recette_bdd['nom'];
-$_SESSION['description_recette'] = $recette_bdd['description'];
-$_SESSION['image_recette'] = $recette_bdd['image'];
-}else {
-    unset($_SESSION['nom_recette']); }
-
-}else{
-    unset($_SESSION['nom_recette']); }
-
-header('location:recherche_favoris.php');
+$_SESSION['recettes_favorites'] = $recettes_favorites;
 ?>
+
+
+<body>
+    <h1>Mes recettes favorites</h1>
+
+    <?php foreach ($_SESSION['recettes_favorites'] as $recette) : ?>
+        <h2><?php echo $recette['nom']; ?></h2>
+        <img src="<?php echo $recette['image']; ?>" alt="<?php echo $recette['nom']; ?>" />
+        <p><?php echo $recette['description']; ?></p>
+    <?php endforeach; ?>
+</body>
+</html>
