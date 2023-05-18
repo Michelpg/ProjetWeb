@@ -25,7 +25,7 @@ if (isset($_SESSION['id_rec'])){
         $processedIds[] = $idRec;
  echo "
 
-<div class='row'>
+<div class='row' style='padding-bottom: 10px;'>
 
 
   <div class='col-4'>

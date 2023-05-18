@@ -10,18 +10,49 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     </head>
     <body>
-        <?php include('entete.php'); ?>
+        <?php 
+        session_start(); 
+        include('entete.php'); 
+        $i=$_POST['i'];
+        ?>
 
         <!-- Div titre et image -->
-        <div style="text-align:center ; margin-bottom :10px ;"> 
-        <h1> Tiramisu (titre ici)</h1>
-        <img src="tiramisu.png">
+        <div style="text-align:center ; margin-bottom :100px ;"> 
+        <h1> <?php echo $_SESSION['nom'][$i] ?> </h1>
+        <img src="image/<?php echo $_SESSION['image'][$i] ?>">
         </div>
         
-        <!-- Div texte de la recette -->
-        <div style="text-align:center ; margin-bottom :10px ;">
+        <!-- Div description de la recette -->
+        <div style="text-align:center ; margin-bottom :50px ;">
+            <h4> <?php echo $_SESSION['description'][$i] ?> </h4>
+        </div>
 
-            <h6> <?php echo $description_recette ?> </h6>
+        
+        <!-- Div instructions et ingrédients de la recette -->
+        <div style="text-align:center ; margin-bottom :50px ;">
+            <h4>  Ingredients : </h4>
+            <h5> <?php echo $_SESSION['ingredient'][$i] ?> </h5>
+
+            <h4>  ustensiles : </h4>
+            <h5> <?php echo $_SESSION['ustensiles'][$i] ?> </h5>
+
+            <h4>  Temps : </h4>
+            <h5> <?php echo $_SESSION['temps'][$i] ?> </h5>
+
+            <h4>  Nombre de personne : </h4>
+            <h5> <?php echo $_SESSION['nbr_pers'][$i] ?> </h5>
+
+            <h4>  Difficulte : </h4>
+            <h5> <?php echo $_SESSION['difficulte'][$i] ?> </h5>
+
+            <h4>  Cout : </h4>
+            <h5> <?php echo $_SESSION['cout'][$i] ?> </h5>
+
+            <h4>  Preparation : </h4>
+            <h5> <?php echo $_SESSION['preparation'][$i] ?> </h5>
+
+            <h4>  Note : </h4>
+            <h5> <?php echo $_SESSION['note'][$i] ?> </h5>
 
         </div>
 
