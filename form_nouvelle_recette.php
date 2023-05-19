@@ -12,7 +12,7 @@
     
     <h1>Nouvelle recette</h1>
 
-<form action="new_recette.php" method="post">
+<form action="new_recette.php" method="post" enctype="multipart/form-data">
 
     <table>
         <tr>
@@ -50,8 +50,8 @@
             <td><textarea maxlength="300" cols="70" rows="5" name="us"></textarea></td>
         </tr>
         <tr>
-            <td><label for="img">Image</label></td>
-            <td><input type="file" name="img" accept="image/*"/></td>
+            <td><label for="image">Image</label></td>
+            <td><input type="file" name="image" accept="image/*"/></td>
         </tr>
         
     </table>

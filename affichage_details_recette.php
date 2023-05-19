@@ -19,7 +19,7 @@
         <!-- Div titre et image -->
         <div style="text-align:center ; margin-bottom :100px ;"> 
         <h1> <?php echo $_SESSION['nom'][$i] ?> </h1>
-        <img src="image/<?php echo $_SESSION['image'][$i] ?>">
+        <img src="<?php echo $_SESSION['image'][$i] ?>">
         </div>
         
         <!-- Div description de la recette -->

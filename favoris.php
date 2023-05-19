@@ -1,6 +1,7 @@
 <?php 
 session_start();
 ?>
+<?php include('entete.php'); ?>
 <!DOCTYPE html>
 
 <html>
@@ -11,7 +12,7 @@ session_start();
     <title>Mes recettes favorites</title>
     </head>
     <body>
-    <?php include('entete.php'); ?>
+    
 
     <div style = "margin-top: 50px;">
 <?php

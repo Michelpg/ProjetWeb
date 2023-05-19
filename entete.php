@@ -25,7 +25,7 @@ if (isset ($_SESSION['log']))
 	        <p>Découvrez des recettes délicieuses et simples à réaliser chez vous.</p>
         </div>
         <div style="width:fit-content;">
-            <img src="image_amphore_3.png" style=" max-width: 100%; max-height: 100%; float:right;">
+            <img src="image/image_amphore_3.png" style=" max-width: 100%; max-height: 100%; float:right;">
         </div>
 	</div>
     
@@ -59,7 +59,7 @@ if (isset ($_SESSION['log']))
                         <div class='dropdown-menu' aria-labelledby='dropdownId'>
                             <a class='dropdown-item' href='favoris.php'>Favoris</a>
                             <a class='dropdown-item' href='#'>Mes recettes</a>
-                            <a class='dropdown-item' href='nouvelle_recette.php'>Nouvelles recettes</a>
+                            <a class='dropdown-item' href='form_nouvelle_recette.php'>Nouvelles recettes</a>
                         </div>
                     </li>";}?>
                 </ul>
