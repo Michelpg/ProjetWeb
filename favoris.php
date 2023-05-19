@@ -1,7 +1,7 @@
 <?php 
 session_start();
 ?>
-<?php include('entete.php'); ?>
+
 <!DOCTYPE html>
 
 <html>
@@ -29,11 +29,12 @@ $_SESSION['recettes_favorites'] = $recettes_favorites;
 
 <body>
     <h1>Mes recettes favorites</h1>
-
+<?php include('entete.php'); ?>
     <?php foreach ($_SESSION['recettes_favorites'] as $recette) : ?>
         <h2><?php echo $recette['nom']; ?></h2>
         <img src="<?php echo $recette['image']; ?>" alt="<?php echo $recette['nom']; ?>" />
         <p><?php echo $recette['description']; ?></p>
     <?php endforeach; ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>
