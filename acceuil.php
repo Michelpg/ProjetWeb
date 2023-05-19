@@ -19,7 +19,7 @@
             <div class="card" style = "margin-left: 5px;">
               <div class="card-body">
                 <h3 class="card-title" style="border-bottom: 1px solid silver;">Recette du jour</h3>
-                <img src="tiramisu.png">
+                <img src="image/tiramisu.png">
                 <h3 class="card-title">Recette du jour</h3>
                 <p class="card-text">Text</p>
               </div>
@@ -29,7 +29,7 @@
             <div class="card">
               <div class="card-body">
                 <h3 class="card-title" style="border-bottom: 1px solid silver;">Recette populaire</h3>
-                <img src="tiramisu.png">
+                <img src="image/tiramisu.png">
                 <h3 class="card-title">Recette populaire</h3>
                 <p class="card-text">Text</p>
               </div>
@@ -39,7 +39,7 @@
             <div class="card" style=" margin-right: 5px; ">
               <div class="card-body">
                 <h3 class="card-title" style="border-bottom: 1px solid silver;">Recette notée récemment</h3>
-                <img src="tiramisu.png">
+                <img src="image/tiramisu.png">
                 <h3 class="card-title">Recette notée récemment</h3>
                 <p class="card-text">Text</p>
               </div>
