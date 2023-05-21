@@ -1,5 +1,12 @@
 <?php 
 session_start();
+$log = $_SESSION['log'];
+$mdp = $_SESSION['mdp'];
+
+session_unset();
+
+$_SESSION['log'] = $log;
+$_SESSION['mdp'] = $mdp;
 ?>
 
 <!DOCTYPE html>
@@ -18,23 +25,88 @@ session_start();
 <?php
 require("formconn.inc.php");
 
-$select_query = "SELECT recette.nom, recette.description, recette.image FROM favori INNER JOIN recette ON favori.id_rec = recette.id_rec;";
-$res = $pdo->query($select_query);
-$res->setFetchMode(PDO::FETCH_ASSOC);
-$recettes_favorites = $res->fetchAll();
+$select_query = "   SELECT recette.nom, recette.description, recette.image 
+                    FROM favori 
+                    INNER JOIN recette ON favori.id_rec = recette.id_rec 
+                    INNER JOIN utilisateur ON favori.id_uti = utilisateur.id_uti  
+                    WHERE utilisateur.pseudo='$log'";
+$resul = $pdo->query($select_query);
+$resul->setFetchMode(PDO::FETCH_ASSOC);
+$recettes_favorites = $resul->fetchAll();
 
 $_SESSION['recettes_favorites'] = $recettes_favorites;
+
+$sql = "SELECT * FROM recette INNER JOIN favori ON favori.id_rec = recette.id_rec 
+INNER JOIN utilisateur ON favori.id_uti = utilisateur.id_uti  
+WHERE utilisateur.pseudo='$log'; ";
+
+$row = $pdo->query($sql);
+$results = $row->fetchAll(PDO::FETCH_ASSOC);
+if ($results) {
+    foreach ($results as $res) {
+        $_SESSION['id_rec'][] = $res["id_rec"];
+        $_SESSION['nom'][] = $res["nom"];
+        $_SESSION['description'][] = $res["description"];
+        $_SESSION['temps'][] = $res["temps"];
+        $_SESSION['ingredient'][] = $res["ingredient"];
+        $_SESSION['difficulte'][] = $res["difficulte"];
+        $_SESSION['cout'][] = $res["cout"];
+        $_SESSION['nbr_pers'][] = $res["nbr_pers"];
+        $_SESSION['ustensiles'][] = $res["ustensiles"];
+        $_SESSION['preparation'][] = $res["preparation"];
+        $_SESSION['note'][] = $res["note"];
+        $_SESSION['image'][] = $res["image"];
+        
+    }
+}
+
 ?>
 
 
 <body>
     <h1>Mes recettes favorites</h1>
 <?php include('entete.php'); ?>
+    
     <?php foreach ($_SESSION['recettes_favorites'] as $recette) : ?>
         <h2><?php echo $recette['nom']; ?></h2>
         <img src="<?php echo $recette['image']; ?>" alt="<?php echo $recette['nom']; ?>" />
         <p><?php echo $recette['description']; ?></p>
     <?php endforeach; ?>
+    <?php   
+
+$processedIds = array();
+
+if (isset($_SESSION['id_rec'])){
+    for ($i = 0; $i < count($_SESSION['id_rec']); $i++) {
+      $idRec = $_SESSION['id_rec'][$i];
+        if (in_array($idRec, $processedIds)) {
+            continue; 
+        }
+        
+        $processedIds[] = $idRec;
+echo "
+
+<div class='row' style='padding-bottom: 10px;'>
+
+
+  <div class='col-4'>
+    <div class='card' style = 'margin-left: 5px;'>
+      <div class='card-body'>
+        <h3 class='card-title' style='border-bottom: 1px solid silver;''>".$_SESSION['nom'][$i]."</h3>
+        <form action='affichage_details_recette.php' method='post'>
+  <input type='hidden' name='i' value=".$i.">
+        <br />
+        <input type='image' src='".$_SESSION['image'][$i]."' alt='Bouton d'image' />
+    </form>
+        <p class='card-text'>".$_SESSION['description'][$i]."</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+";}
+    }
+?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>
