@@ -40,6 +40,7 @@ $sql = "SELECT * FROM recette INNER JOIN favori ON favori.id_rec = recette.id_re
 INNER JOIN utilisateur ON favori.id_uti = utilisateur.id_uti  
 WHERE utilisateur.pseudo='$log'; ";
 
+
 $row = $pdo->query($sql);
 $results = $row->fetchAll(PDO::FETCH_ASSOC);
 if ($results) {
