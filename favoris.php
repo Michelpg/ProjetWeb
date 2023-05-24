@@ -7,8 +7,10 @@ session_unset();
 
 $_SESSION['log'] = $log;
 $_SESSION['mdp'] = $mdp;
-?>
 
+
+?>
+<?php include('entete.php'); ?>
 <!DOCTYPE html>
 
 <html>
@@ -56,7 +58,7 @@ if ($results) {
 
 
 <body>
-<?php include('entete.php'); ?>
+
     
     <?php   
 
