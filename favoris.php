@@ -25,16 +25,7 @@ $_SESSION['mdp'] = $mdp;
 <?php
 require("formconn.inc.php");
 
-$select_query = "   SELECT recette.nom, recette.description, recette.image 
-                    FROM favori 
-                    INNER JOIN recette ON favori.id_rec = recette.id_rec 
-                    INNER JOIN utilisateur ON favori.id_uti = utilisateur.id_uti  
-                    WHERE utilisateur.pseudo='$log'";
-$resul = $pdo->query($select_query);
-$resul->setFetchMode(PDO::FETCH_ASSOC);
-$recettes_favorites = $resul->fetchAll();
 
-$_SESSION['recettes_favorites'] = $recettes_favorites;
 
 $sql = "SELECT * FROM recette INNER JOIN favori ON favori.id_rec = recette.id_rec 
 INNER JOIN utilisateur ON favori.id_uti = utilisateur.id_uti  
@@ -65,14 +56,8 @@ if ($results) {
 
 
 <body>
-    <h1>Mes recettes favorites</h1>
 <?php include('entete.php'); ?>
     
-    <?php foreach ($_SESSION['recettes_favorites'] as $recette) : ?>
-        <h2><?php echo $recette['nom']; ?></h2>
-        <img src="<?php echo $recette['image']; ?>" alt="<?php echo $recette['nom']; ?>" />
-        <p><?php echo $recette['description']; ?></p>
-    <?php endforeach; ?>
     <?php   
 
 $processedIds = array();
