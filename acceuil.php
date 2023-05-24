@@ -97,6 +97,7 @@ if (isset($_SESSION['log'])) {
       $processedIds[] = $idRec;
     }
   }
+
   ?>
 
 
@@ -109,7 +110,7 @@ if (isset($_SESSION['log'])) {
         <div class="card" style="margin-left: 5px;">
           <div class="card-body">
             <h3 class="card-title" style="border-bottom: 1px solid silver;">Recette du jour</h3>
-            <img src="image/tiramisu.png">
+            <img src="<?php echo $_SESSION['image'][0] ?>">
             <h3 class="card-title"><?php echo $_SESSION['nom'][0] ?></h3>
             <p class="card-text"><?php echo $_SESSION['description'][0] ?></p>
           </div>
@@ -119,7 +120,7 @@ if (isset($_SESSION['log'])) {
         <div class="card">
           <div class="card-body">
             <h3 class="card-title" style="border-bottom: 1px solid silver;">Recette populaire</h3>
-            <img src="image/tiramisu.png">
+            <img src="<?php echo $_SESSION['image'][1] ?> ">
             <h3 class="card-title"><?php echo $_SESSION['nom'][1] ?></h3>
             <p class="card-text"><?php echo $_SESSION['description'][1] ?></p>
           </div>
@@ -129,7 +130,7 @@ if (isset($_SESSION['log'])) {
         <div class="card" style=" margin-right: 5px; ">
           <div class="card-body">
             <h3 class="card-title" style="border-bottom: 1px solid silver;">Recette aléatoire</h3>
-            <img src="image/tiramisu.png">
+            <img src="<?php echo $_SESSION['image'][2] ?>">
             <h3 class="card-title"><?php echo $_SESSION['description'][2] ?></h3>
             <p class="card-text"><?php echo $_SESSION['description'][2] ?></p>
           </div>
