@@ -1,4 +1,15 @@
-<?php session_start();?>
+<?php session_start();
+
+if (isset($_SESSION['log'])) {
+  $log = $_SESSION['log'];
+  $mdp = $_SESSION['mdp'];
+
+  session_unset();
+
+  $_SESSION['log'] = $log;
+  $_SESSION['mdp'] = $mdp;
+}
+?>
 <!DOCTYPE html>
 <html lang=fr>
 
@@ -7,49 +18,74 @@
 </head>
 
 <body>
-  <?php 
+  <?php
   include('entete.php');
   require("formconn.inc.php");
 
-  $sql_recette_du_jour = "SELECT * FROM recette WHERE nom = 'Navarin d'agneau';";
-
+  $sql_recette_du_jour = "SELECT * FROM recette WHERE nom = 'Tarte aux pommes';";
   $sql_recette_populaire = "SELECT * FROM recette WHERE note > 4
   ORDER BY RAND()
   LIMIT 1;";
-  $sql_recette_aleatoire= "";  
-  
+  $sql_recette_aleatoire = "SELECT * FROM recette
+  ORDER BY RAND()
+  LIMIT 1;";
+
   $row = $pdo->query($sql_recette_du_jour);
-  $results = $row->fetchAll(PDO::FETCH_ASSOC);
-  if ($results) {
-      foreach ($results as $res) {
-          $_SESSION['id_rec'][] = $res["id_rec"];
-          $_SESSION['nom'][] = $res["nom"];
-          $_SESSION['description'][] = $res["description"];
-          $_SESSION['temps'][] = $res["temps"];
-          $_SESSION['ingredient'][] = $res["ingredient"];
-          $_SESSION['difficulte'][] = $res["difficulte"];
-          $_SESSION['cout'][] = $res["cout"];
-          $_SESSION['nbr_pers'][] = $res["nbr_pers"];
-          $_SESSION['ustensiles'][] = $res["ustensiles"];
-          $_SESSION['preparation'][] = $res["preparation"];
-          $_SESSION['note'][] = $res["note"];
-          $_SESSION['image'][] = $res["image"];
-      }
-  }
-  
+  $res = $row->fetchAll(PDO::FETCH_ASSOC);
+  $_SESSION['id_rec'][] = $res["id_rec"];
+  $_SESSION['nom'][] = $res["nom"];
+  $_SESSION['description'][] = $res["description"];
+  $_SESSION['temps'][] = $res["temps"];
+  $_SESSION['ingredient'][] = $res["ingredient"];
+  $_SESSION['difficulte'][] = $res["difficulte"];
+  $_SESSION['cout'][] = $res["cout"];
+  $_SESSION['nbr_pers'][] = $res["nbr_pers"];
+  $_SESSION['ustensiles'][] = $res["ustensiles"];
+  $_SESSION['preparation'][] = $res["preparation"];
+  $_SESSION['note'][] = $res["note"];
+  $_SESSION['image'][] = $res["image"];
+
+  $row = $pdo->query($sql_recette_populaire);
+  $res = $row->fetchAll(PDO::FETCH_ASSOC);
+  $_SESSION['id_rec'][] = $res["id_rec"];
+  $_SESSION['nom'][] = $res["nom"];
+  $_SESSION['description'][] = $res["description"];
+  $_SESSION['temps'][] = $res["temps"];
+  $_SESSION['ingredient'][] = $res["ingredient"];
+  $_SESSION['difficulte'][] = $res["difficulte"];
+  $_SESSION['cout'][] = $res["cout"];
+  $_SESSION['nbr_pers'][] = $res["nbr_pers"];
+  $_SESSION['ustensiles'][] = $res["ustensiles"];
+  $_SESSION['preparation'][] = $res["preparation"];
+  $_SESSION['note'][] = $res["note"];
+  $_SESSION['image'][] = $res["image"];
+
+  $row = $pdo->query($sql_recette_aleatoire);
+  $res = $row->fetchAll(PDO::FETCH_ASSOC);
+  $_SESSION['id_rec'][] = $res["id_rec"];
+  $_SESSION['nom'][] = $res["nom"];
+  $_SESSION['description'][] = $res["description"];
+  $_SESSION['temps'][] = $res["temps"];
+  $_SESSION['ingredient'][] = $res["ingredient"];
+  $_SESSION['difficulte'][] = $res["difficulte"];
+  $_SESSION['cout'][] = $res["cout"];
+  $_SESSION['nbr_pers'][] = $res["nbr_pers"];
+  $_SESSION['ustensiles'][] = $res["ustensiles"];
+  $_SESSION['preparation'][] = $res["preparation"];
+  $_SESSION['note'][] = $res["note"];
+  $_SESSION['image'][] = $res["image"];
+
   $processedIds = array();
-  
-  if (isset($_SESSION['id_rec']))
-  {
-      for ($i = 0; $i < count($_SESSION['id_rec']); $i++) 
-      {
-        $idRec = $_SESSION['id_rec'][$i];
-          if (in_array($idRec, $processedIds)) {
-              continue; 
-          }
-          
-          $processedIds[] = $idRec;
+
+  if (isset($_SESSION['id_rec'])) {
+    for ($i = 0; $i < count($_SESSION['id_rec']); $i++) {
+      $idRec = $_SESSION['id_rec'][$i];
+      if (in_array($idRec, $processedIds)) {
+        continue;
       }
+
+      $processedIds[] = $idRec;
+    }
   }
   ?>
 
@@ -66,8 +102,8 @@
           <div class="card-body">
             <h3 class="card-title" style="border-bottom: 1px solid silver;">Recette du jour</h3>
             <img src="image/tiramisu.png">
-            <h3 class="card-title">Recette du jour</h3>
-            <p class="card-text">Text</p>
+            <h3 class="card-title"><?php $_SESSION['nom'][0] ?></h3>
+            <p class="card-text"><?php $_SESSION['description'][0] ?></p>
           </div>
         </div>
       </div>
@@ -76,8 +112,8 @@
           <div class="card-body">
             <h3 class="card-title" style="border-bottom: 1px solid silver;">Recette populaire</h3>
             <img src="image/tiramisu.png">
-            <h3 class="card-title">Recette populaire</h3>
-            <p class="card-text">Text</p>
+            <h3 class="card-title"><?php $_SESSION['nom'][1] ?></h3>
+            <p class="card-text"><?php $_SESSION['description'][1] ?></p>
           </div>
         </div>
       </div>
@@ -86,8 +122,8 @@
           <div class="card-body">
             <h3 class="card-title" style="border-bottom: 1px solid silver;">Recette aléatoire</h3>
             <img src="image/tiramisu.png">
-            <h3 class="card-title">Recette akéatoire</h3>
-            <p class="card-text">Text</p>
+            <h3 class="card-title"><?php $_SESSION['description'][2] ?></h3>
+            <p class="card-text"><?php $_SESSION['description'][2] ?></p>
           </div>
         </div>
       </div>
