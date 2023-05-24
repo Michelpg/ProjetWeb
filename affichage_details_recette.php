@@ -8,6 +8,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <style>
+        .img {
+            width: 500px; 
+            height: 400px; 
+            object-fit: cover; 
+        }
+            </style>
     </head>
     <body>
         <?php 
@@ -18,8 +25,10 @@
 
         <!-- Div titre et image -->
         <div style="text-align:center ; margin-bottom :100px ;"> 
-        <h1> <?php echo $_SESSION['nom'][$i] ?> </h1>
-        <img src="<?php echo $_SESSION['image'][$i] ?>">
+        <h1> <?php echo $_SESSION['nom'][$i] ?> <?php include('ajouter_un_favoris.php') ?></h1>
+        
+        <img class="img" src="<?php echo $_SESSION['image'][$i] ?>">
+        
         </div>
         
         <!-- Div description de la recette -->
