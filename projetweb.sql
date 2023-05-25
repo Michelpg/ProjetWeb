@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 19 mai 2023 à 12:59
+-- Généré le : jeu. 25 mai 2023 à 08:57
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `favori` (
   PRIMARY KEY (`id_fav`),
   KEY `id_rec` (`id_rec`),
   KEY `id_uti` (`id_uti`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `favori`
@@ -45,7 +45,12 @@ INSERT INTO `favori` (`id_fav`, `id_rec`, `id_uti`) VALUES
 (1, 2, 7),
 (3, 1, 7),
 (4, 4, 8),
-(5, 7, 8);
+(5, 7, 8),
+(6, 5, 11),
+(7, 4, 11),
+(8, 10, 11),
+(9, 10, 7),
+(10, 9, 10);
 
 -- --------------------------------------------------------
 
@@ -94,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `recette` (
   `id_uti` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_rec`),
   KEY `id_uti` (`id_uti`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `recette`
@@ -108,7 +113,12 @@ INSERT INTO `recette` (`id_rec`, `nom`, `description`, `temps`, `ingredient`, `d
 (5, 'Pâtes carbonara', 'Un classique de la cuisine italienne : des pâtes crémeuses aux lardons et au fromage.', '20 min', '200 g de spaghetti\r\n150 g de lardons\r\n2 jaunes d\'œufs\r\n50 g de parmesan râpé\r\nSel\r\nPoivre', 'Facile', 'Abordable', 2, '1 casserole\r\n1 poêle', 'ÉTAPE 1\r\nFaites cuire les spaghetti dans une casserole d\'eau bouillante salée selon les instructions sur l\'emballage. Égouttez-les.\r\n\r\nÉTAPE 2\r\nDans une poêle, faites revenir les lardons jusqu\'à ce qu\'ils soient dorés.\r\n\r\nÉTAPE 3\r\nDans un bol, mélangez les jaunes d\'œufs avec le parmesan râpé. Assaisonnez avec du sel et du poivre.\r\n\r\nÉTAPE 4\r\nAjoutez les spaghetti égouttés dans la poêle avec les lardons et versez le mélange d\'œufs et de fromage. Mélangez rapidement pour enrober les pâtes de la sauce.\r\n\r\nÉTAPE 5\r\nServez les pâtes carbonara chaudes avec un peu de parmesan râpé.', 4.7, 'image/pates-carbonara.jpg', NULL),
 (6, 'Tarte aux pommes', 'Une tarte classique aux pommes avec une pâte croustillante et une garniture moelleuse.', '1 h', '250 g de farine\r\n125 g de beurre froid\r\n1 pincée de sel\r\n2 cuillères à soupe de sucre\r\n5 pommes\r\n2 cuillères à soupe de confiture d\'abricot\r\nSucre glace (pour saupoudrer)', 'Moyen', 'Abordable', 6, '1 moule à tarte\r\n1 rouleau à pâtisserie\r\n1 pinceau de cuisine', 'ÉTAPE 1\r\nPréparez la pâte en mélangeant la farine, le beurre coupé en dés, le sel et le sucre dans un saladier. Ajoutez un peu d\'eau froide si nécessaire pour former une boule de pâte. Laissez reposer au réfrigérateur pendant 30 minutes.\r\n\r\nÉTAPE 2\r\nPréchauffez le four à 180°C.\r\n\r\nÉTAPE 3\r\nÉpluchez et coupez les pommes en fines tranches.\r\n\r\nÉTAPE 4\r\nÉtalez la pâte sur une surface farinée et placez-la dans un moule à tarte. Piquez le fond avec une fourchette.\r\n\r\nÉTAPE 5\r\nDisposez les tranches de pommes sur la pâte. Badigeonnez-les avec la confiture d\'abricot.\r\n\r\nÉTAPE 6\r\nEnfournez la tarte pendant environ 40 minutes, jusqu\'à ce qu\'elle soit dorée.\r\n\r\nÉTAPE 7\r\nLaissez refroidir légèrement avant de saupoudrer de sucre glace. Servez tiède ou froid.', 4.3, 'image/tarte-aux-pommes.jpeg', NULL),
 (7, 'Risotto aux champignons', 'Un délicieux risotto crémeux aux champignons, parfait en plat principal.', '40 min', '300 g de riz arborio\r\n250 g de champignons de Paris\r\n1 oignon\r\n2 gousses d\'ail\r\n1 litre de bouillon de légumes\r\n100 ml de vin blanc\r\n50 g de parmesan râpé\r\n2 cuillères à soupe d\'huile d\'olive\r\nSel\r\nPoivre', 'Moyen', 'Abordable', 4, '1 casserole\r\n1 poêle', 'ÉTAPE 1\r\nDans une casserole, faites chauffer l\'huile d\'olive. Faites revenir l\'oignon et l\'ail hachés jusqu\'à ce qu\'ils soient dorés.\r\n\r\nÉTAPE 2\r\nAjoutez les champignons émincés et laissez cuire pendant quelques minutes.\r\n\r\nÉTAPE 3\r\nAjoutez le riz arborio et remuez pendant une minute pour bien l\'enrober d\'huile.\r\n\r\nÉTAPE 4\r\nVersez le vin blanc et laissez-le s\'évaporer.\r\n\r\nÉTAPE 5\r\nAjoutez le bouillon de légumes chaud, une louche à la fois, en remuant constamment. Attendez que le liquide soit absorbé avant d\'ajouter la louche suivante.\r\n\r\nÉTAPE 6\r\nContinuez à ajouter le bouillon et à remuer pendant environ 20 minutes, jusqu\'à ce que le riz soit tendre mais encore légèrement croquant.\r\n\r\nÉTAPE 7\r\nRetirez la casserole du feu et ajoutez le parmesan râpé. Mélangez jusqu\'à ce qu\'il soit fondu et que le risotto soit crémeux.\r\n\r\nÉTAPE 8\r\nAssaisonnez avec du sel et du poivre selon votre goût. Servez chaud.', 4.6, 'image/risotto-champignons.jpeg', NULL),
-(8, 'Gaspacho de tomates', 'Une soupe froide à base de tomates fraîches et de légumes, idéale pour les jours chauds.', '20 min', '1 kg de tomates mûres\r\n1 concombre\r\n1 poivron rouge\r\n1 oignon\r\n2 gousses d\'ail\r\n3 cuillères à soupe d\'huile d\'olive\r\n2 cuillères à soupe de vinaigre de vin\r\nSel\r\nPoivre\r\nCiboulette (pour la garniture)', 'Facile', 'Abordable', 4, '1 mixeur\r\n1 passoire', 'ÉTAPE 1\r\nÉbouillantez les tomates pendant quelques secondes, puis retirez leur peau.\r\n\r\nÉTAPE 2\r\nCoupez les tomates, le concombre, le poivron, l\'oignon et l\'ail en morceaux.\r\n\r\nÉTAPE 3\r\nPlacez tous les légumes dans un mixeur et mixez jusqu\'à obtenir une consistance lisse.\r\n\r\nÉTAPE 4\r\nAjoutez l\'huile d\'olive, le vinaigre de vin, le sel et le poivre. Mixez à nouveau pour bien mélanger les ingrédients.\r\n\r\nÉTAPE 5\r\nPassez le gaspacho au travers d\'une passoire pour éliminer les éventuels morceaux.\r\n\r\nÉTAPE 6\r\nRéfrigérez le gaspacho pendant au moins une heure avant de le servir.\r\n\r\nÉTAPE 7\r\nAu moment de servir, garnissez le gaspacho de ciboulette ciselée. Servez bien frais.', 4.2, 'image/gaspacho-tomates.jpeg', NULL);
+(8, 'Gaspacho de tomates', 'Une soupe froide à base de tomates fraîches et de légumes, idéale pour les jours chauds.', '20 min', '1 kg de tomates mûres\r\n1 concombre\r\n1 poivron rouge\r\n1 oignon\r\n2 gousses d\'ail\r\n3 cuillères à soupe d\'huile d\'olive\r\n2 cuillères à soupe de vinaigre de vin\r\nSel\r\nPoivre\r\nCiboulette (pour la garniture)', 'Facile', 'Abordable', 4, '1 mixeur\r\n1 passoire', 'ÉTAPE 1\r\nÉbouillantez les tomates pendant quelques secondes, puis retirez leur peau.\r\n\r\nÉTAPE 2\r\nCoupez les tomates, le concombre, le poivron, l\'oignon et l\'ail en morceaux.\r\n\r\nÉTAPE 3\r\nPlacez tous les légumes dans un mixeur et mixez jusqu\'à obtenir une consistance lisse.\r\n\r\nÉTAPE 4\r\nAjoutez l\'huile d\'olive, le vinaigre de vin, le sel et le poivre. Mixez à nouveau pour bien mélanger les ingrédients.\r\n\r\nÉTAPE 5\r\nPassez le gaspacho au travers d\'une passoire pour éliminer les éventuels morceaux.\r\n\r\nÉTAPE 6\r\nRéfrigérez le gaspacho pendant au moins une heure avant de le servir.\r\n\r\nÉTAPE 7\r\nAu moment de servir, garnissez le gaspacho de ciboulette ciselée. Servez bien frais.', 4.2, 'image/gaspacho-tomates.jpeg', NULL),
+(9, 'Salade Niçoise', 'Une salade fraîche et colorée originaire de la région de Nice, en France.', '30 min', '200 g de thon en boîte\r\n200 g de haricots verts\r\n4 tomates\r\n2 œufs\r\n1 poivron rouge\r\n1 oignon rouge\r\n100 g d\'olives noires\r\n4 filets d\'anchois\r\nHuile d\'olive\r\nVinaigre balsamique\r\nSel\r\nPoivre', 'Facile', 'Abordable', 2, '1 saladier\r\n1 casserole', 'ÉTAPE 1\r\nFaites cuire les haricots verts dans de l\'eau bouillante salée pendant environ 5 minutes, puis égouttez-les et passez-les sous l\'eau froide pour arrêter la cuisson.\r\n\r\nÉTAPE 2\r\nFaites cuire les œufs dans une casserole d\'eau bouillante pendant environ 8 minutes. Écalez-les et coupez-les en quartiers.\r\n\r\nÉTAPE 3\r\nCoupez les tomates en quartiers, le poivron en lamelles et l\'oignon en rondelles.\r\n\r\nÉTAPE 4\r\nDans un saladier, disposez les haricots verts, les tomates, le poivron, l\'oignon, les olives et les filets d\'anchois.\r\n\r\nÉTAPE 5\r\nÉmiettez le thon par-dessus la salade et disposez les quartiers d\'œufs sur le dessus.\r\n\r\nÉTAPE 6\r\nAssaisonnez avec de l\'huile d\'olive, du vinaigre balsamique, du sel et du poivre selon votre goût. Mélangez délicatement.\r\n\r\nÉTAPE 7\r\nLaissez reposer au réfrigérateur pendant environ 30 minutes avant de servir.', 4.4, 'image/salade-nicoise.jpeg', NULL),
+(10, 'Poulet Tikka Masala', 'Un plat indien savoureux à base de morceaux de poulet marinés dans une sauce crémeuse aux épices.', '1 h 30 min', '500 g de blancs de poulet\r\n2 oignons\r\n2 gousses d\'ail\r\n2 cm de gingembre frais\r\n1 cuillère à soupe de paprika\r\n1 cuillère à soupe de garam masala\r\n1 cuillère à soupe de cumin\r\n1 cuillère à soupe de coriandre en poudre\r\n200 ml de yaourt nature\r\n200 ml de crème fraîche\r\n2 cuillères à soupe d\'huile végétale\r\nSel\r\nPoivre', 'Moyen', 'Abordable', 4, '1 poêle\r\n1 mixeur', 'ÉTAPE 1\r\nCoupez les blancs de poulet en morceaux.\r\n\r\nÉTAPE 2\r\nDans un mixeur, mixez les oignons, l\'ail, le gingembre, le paprika, le garam masala, le cumin, la coriandre en poudre, le yaourt, du sel et du poivre jusqu\'à obtenir une pâte lisse.\r\n\r\nÉTAPE 3\r\nFaites chauffer l\'huile dans une poêle et faites revenir la pâte d\'épices pendant quelques minutes.\r\n\r\nÉTAPE 4\r\nAjoutez les morceaux de poulet et faites-les cuire jusqu\'à ce qu\'ils soient dorés.\r\n\r\nÉTAPE 5\r\nVersez la crème fraîche dans la poêle et mélangez bien. Laissez mijoter à feu doux pendant environ 30 minutes.\r\n\r\nÉTAPE 6\r\nServez le poulet Tikka Masala avec du riz basmati et saupoudrez de coriandre fraîche.', 4.7, 'image/poulet-tikka-masala.jpeg', NULL),
+(11, 'Tarte aux fraises', 'Une délicieuse tarte aux fraises avec une croûte croustillante et une crème pâtissière vanillée.', '2 h', '250 g de farine\r\n125 g de beurre\r\n100 g de sucre\r\n2 jaunes d\'œufs\r\n500 g de fraises\r\n500 ml de lait\r\n4 jaunes d\'œufs\r\n100 g de sucre\r\n50 g de maïzena\r\n1 gousse de vanille\r\nSucre glace', 'Difficile', 'Abordable', 6, '1 moule à tarte\r\n1 casserole', 'ÉTAPE 1\r\nPréparez la pâte en mélangeant la farine, le beurre, le sucre et les jaunes d\'œufs dans un saladier. Pétrissez jusqu\'à obtenir une pâte homogène. Réfrigérez pendant 30 minutes.\r\n\r\nÉTAPE 2\r\nPréchauffez le four à 180°C.\r\n\r\nÉTAPE 3\r\nÉtalez la pâte sur un plan de travail fariné et placez-la dans un moule à tarte. Piquez le fond avec une fourchette et enfournez pendant environ 15 minutes, jusqu\'à ce que la croûte soit dorée. Laissez refroidir.\r\n\r\nÉTAPE 4\r\nPendant ce temps, préparez la crème pâtissière en faisant chauffer le lait et la gousse de vanille fendue dans une casserole. Dans un saladier, mélangez les jaunes d\'œufs, le sucre et la maïzena. Versez le lait chaud sur ce mélange en remuant constamment. Reversez le tout dans la casserole et faites cuire à feu doux jusqu\'à épaississement. Laissez refroidir.\r\n\r\nÉTAPE 5\r\nLavez et équeutez les fraises. Coupez-les en deux.\r\n\r\nÉTAPE 6\r\nUne fois la croûte refroidie, étalez la crème pâtissière sur le fond. Disposez les fraises sur le dessus.\r\n\r\nÉTAPE 7\r\nSaupoudrez la tarte de sucre glace avant de servir.', 4.5, 'image/tarte-aux-fraises.jpeg', NULL),
+(12, 'Smoothie Vert', 'Un smoothie rafraîchissant et sain à base d\'épinards, de bananes et de jus de citron.', '10 min', '2 poignées d\'épinards frais\r\n2 bananes mûres\r\nLe jus d\'un citron\r\n200 ml d\'eau', 'Facile', 'Abordable', 2, '1 mixeur', 'ÉTAPE 1\r\nRincez les épinards sous l\'eau froide pour les nettoyer.\r\n\r\nÉTAPE 2\r\nÉpluchez les bananes et coupez-les en morceaux.\r\n\r\nÉTAPE 3\r\nDans un mixeur, combinez les épinards, les bananes, le jus de citron et l\'eau.\r\n\r\nÉTAPE 4\r\nMixez le tout jusqu\'à obtenir une consistance lisse et homogène.\r\n\r\nÉTAPE 5\r\nVersez le smoothie dans des verres et servez immédiatement.', 4.6, 'image/smoothie-vert.jpeg', NULL),
+(15, 'Tiramisu', 'Un délicieux dessert italien à base de biscuits imbibés de café et de crème mascarpone.', '30min', '200 g de biscuits à la cuillère\r\n3 œufs\r\n250 g de mascarpone\r\n80 g de sucre\r\n1 tasse de café fort\r\nCacao en poudre ', 'Facile', 'Abordable', 4, '1 plat rectangulaire', 'ÉTAPE 1\r\nSéparez les blancs des jaunes d\'œufs. Dans un bol, fouettez les jaunes d\'œufs avec le sucre jusqu\'à ce que le mélange blanchisse.\r\n\r\nÉTAPE 2\r\nAjoutez le mascarpone et mélangez jusqu\'à obtenir une crème lisse et homogène.\r\n\r\nÉTAPE 3\r\nMontez les blancs en neige ferme et incorporez-les délicatement à la crème mascarpone.\r\n\r\nÉTAPE 4\r\nTrempez rapidement les biscuits dans le café et disposez-les dans le plat, en une couche.\r\n\r\nÉTAPE 5\r\nRecouvrez les biscuits de la moitié de la crème mascarpone. Répétez l\'opération avec une deuxième couche de biscuits imbibés de café, puis recouvrez du reste de crème mascarpone.\r\n\r\nÉTAPE 6\r\nSaupoudrez généreusement de cacao en poudre.\r\n\r\nÉTAPE 7\r\nRéfrigérez pendant au moins 4 heures avant de servir.\r\n', NULL, 'image/tiramisu.png', NULL);
 
 -- --------------------------------------------------------
 
@@ -123,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `mail` varchar(50) NOT NULL,
   `mdp` varchar(50) NOT NULL,
   PRIMARY KEY (`id_uti`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `utilisateur`
@@ -132,7 +142,8 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 INSERT INTO `utilisateur` (`id_uti`, `pseudo`, `mail`, `mdp`) VALUES
 (7, 'hugo', 'hugo@mail.com', '81dc9bdb52d04dc20036dbd8313ed055'),
 (8, 'user', 'user@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055'),
-(10, 'test', 'test@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055');
+(10, 'test', 'test@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055'),
+(11, 'michel', 'michel@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055');
 
 --
 -- Contraintes pour les tables déchargées
