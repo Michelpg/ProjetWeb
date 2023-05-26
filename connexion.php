@@ -14,11 +14,12 @@ $user = $res->fetch();
 
 if ($user) {
     
-    $pass = $user['mdp'];
+    $_SESSION['user'] = $user['id_uti'];
     
     if ($pass===md5($mdp)) {
         echo "Authentification réussi";
         header('location:acceuil.php');
+        $pass = $user['mdp'];
     } else {
         echo "mot de passe non valide";
         session_unset(); 

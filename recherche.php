@@ -1,9 +1,11 @@
 <?php session_start(); 
 $log = $_SESSION['log'];
 $mdp = $_SESSION['mdp'];
+$id_user=$_SESSION['user'];
 
 session_unset();
 
+$_SESSION['user']=$id_user;
 $_SESSION['log'] = $log;
 $_SESSION['mdp'] = $mdp;
 ?>
