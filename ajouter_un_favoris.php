@@ -12,6 +12,7 @@
 
 require("formconn.inc.php");
 $res["id_rec"]=$_SESSION['id_rec'][$i];
+$id_user=$_SESSION['user'];
 $select_query = "SELECT id_fav FROM favori INNER JOIN recette ON favori.id_rec = recette.id_rec 
 INNER JOIN utilisateur ON favori.id_uti = utilisateur.id_uti  
 WHERE recette.id_rec=$res[id_rec]; ";
