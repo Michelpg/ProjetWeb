@@ -29,7 +29,8 @@
 
     <!-- Div titre et image -->
     <div style="text-align:center ; margin-bottom :50px ;">
-        <h1> <?php echo $_SESSION['nom'][$i] ?> <?php include('ajouter_un_favoris.php') ?></h1>
+        <h1> <?php echo $_SESSION['nom'][$i] ?> <?php if(isset($_SESSION['user']))
+        {include('ajouter_un_favoris.php');}; ?></h1>
 
         <img class="img" src="<?php echo $_SESSION['image'][$i] ?>">
 
