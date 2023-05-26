@@ -13,13 +13,14 @@ $res->setFetchMode(PDO::FETCH_ASSOC);
 $user = $res->fetch();
 
 if ($user) {
-    
-    $_SESSION['user'] = $user['id_uti'];
+    $pass = $user['mdp'];
+
     
     if ($pass===md5($mdp)) {
         echo "Authentification réussi";
+        $_SESSION['user'] = $user['id_uti'];
         header('location:acceuil.php');
-        $pass = $user['mdp'];
+        
     } else {
         echo "mot de passe non valide";
         session_unset(); 
