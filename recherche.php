@@ -13,7 +13,7 @@ $_SESSION['recherche']= $_POST['recherche'];
 $recherche= $_SESSION['recherche'];
 if ($recherche!=''){
     if ($recherche!=' '){
-$sql = "SELECT * FROM recette WHERE nom LIKE'%$recherche%' OR description LIKE'%recherche%' OR temps LIKE'%$recherche%' OR ingredient LIKE'%$recherche%' OR difficulte LIKE'%$recherche%' OR cout LIKE'%$recherche%' OR nbr_pers LIKE'%$recherche%' OR ustensiles LIKE'%$recherche%' OR preparation LIKE'%$recherche%';";
+$sql = "SELECT * FROM recette WHERE nom LIKE'%$recherche%' OR description LIKE'%$recherche%' OR temps LIKE'%$recherche%' OR ingredient LIKE'%$recherche%' OR difficulte LIKE'%$recherche%' OR cout LIKE'%$recherche%' OR nbr_pers LIKE'%$recherche%' OR ustensiles LIKE'%$recherche%' OR preparation LIKE'%$recherche%';";
 $row = $pdo->query($sql);
 $results = $row->fetchAll(PDO::FETCH_ASSOC);
 
