@@ -28,7 +28,7 @@
     ?>
 
     <!-- Div titre et image -->
-    <div style="text-align:center ; margin-bottom :100px ;">
+    <div style="text-align:center ; margin-bottom :50px ;">
         <h1> <?php echo $_SESSION['nom'][$i] ?> <?php include('ajouter_un_favoris.php') ?></h1>
 
         <img class="img" src="<?php echo $_SESSION['image'][$i] ?>">
@@ -36,10 +36,7 @@
     </div>
 
 
-    <div style="text-align:center ; margin-bottom :100px ;">
-        <header class="container">
-            <h1>Notation avec des étoiles</h1>
-        </header>
+    <div style="text-align:center ; margin-bottom :50px ;">
 
         <main class="container">
             <h3>Cliquez sur une étoile pour donner une note</h3>
@@ -54,7 +51,10 @@
             <h4> Note : </h4>
             <h5> <?php echo $_SESSION['note'][$i] ?>/5 </h5>
 
-
+            <?php /*
+            $sql = "UPDATE recette SET note=? WHERE id_rec=?;";
+            $pdo->prepare($sql)->execute([$note, $_SESSION['id_rec']]);
+            */?>
     </div>
 
     <!-- Div description de la recette -->
