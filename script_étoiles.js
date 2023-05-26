@@ -6,6 +6,9 @@ var toutesLesEtoiles = $('.stars .star');
 // toutesLesEtoiles.click(onStarClick)
 toutesLesEtoiles.click(onStarClick);
 
+import { id_rec } from './affichage_details_recette.php';
+
+const mysql = require('mysql2');
 
 // On gère ce qui se passe lors du clic d'une étoile
 function onStarClick(event) {
@@ -36,4 +39,44 @@ function onStarClick(event) {
         etoile.addClass('yellow');
         etoile.removeClass('stargrey');
     }
+
+    // la partie bdd ne fonctionne pas, il y a sûrement un import à faire pour mysql :: surement remplacé par ajax (plus simple)
+
+    const connection = mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: '',
+        database: 'projetweb'
+    });
+
+    // Connect to the database
+    connection.connect((error) => {
+        if (error) {
+            console.error('Error connecting to the database:', error);
+            return;
+        }
+
+        // Select the "avis" and "note" columns from the "recette" table
+        connection.query("SELECT nombre_avis, note FROM recette WHERE id_rec = ${id_rec}", (error, results) => {
+            if (error) {
+                console.error('Error executing the query:', error);
+                return;
+            }
+
+            // Process the query results
+            results.forEach((row) => {
+                const nbr_avis = row.avis;
+                const note = row.note;
+            });
+
+            var avis_maj = nbr_avis++;
+            var note_maj = (note * nbr_avis + indexCliqué) / avis_maj;
+
+            connection.query("UPDATE recette SET nombre_avis=?, note=? WHERE id_rec = ${id_rec}", [avis_maj, note_maj], (error, results) => {
+            });
+
+            // Close the database connection
+            connection.end();
+        });
+    });
 }

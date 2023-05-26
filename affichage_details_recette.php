@@ -29,8 +29,12 @@
 
     <!-- Div titre et image -->
     <div style="text-align:center ; margin-bottom :50px ;">
-        <h1> <?php echo $_SESSION['nom'][$i] ?> <?php if(isset($_SESSION['user']))
-        {include('ajouter_un_favoris.php');}; ?></h1>
+        <h1> <?php
+                echo $_SESSION['nom'][$i];
+                if (isset($_SESSION['user'])) {
+                    include('ajouter_un_favoris.php');
+                }; ?>
+        </h1>
 
         <img class="img" src="<?php echo $_SESSION['image'][$i] ?>">
 
@@ -52,10 +56,33 @@
             <h4> Note : </h4>
             <h5> <?php echo $_SESSION['note'][$i] ?>/5 </h5>
 
-            <?php /*
-            $sql = "UPDATE recette SET note=? WHERE id_rec=?;";
-            $pdo->prepare($sql)->execute([$note, $_SESSION['id_rec']]);
-            */?>
+            <input type="hidden" id="myInteger" value="<?php echo $_SESSION['id_rec']; ?>">
+
+            <script>
+                export var id_rec = parseInt(document.getElementById('myInteger').value);
+            </script>
+
+            <?php
+            /* if (isset($_POST['nombre_étoiles'])) {
+                $nombre_étoiles = $_POST['nombre_étoiles'];
+                $id_rec_requete = $_SESSION['id_rec'][$i];
+                $sql_select = "SELECT nombre_avis, note FROM recette WHERE id_rec = ? VALUES ($id_rec_requete);";
+
+                $row = $pdo->query($sql_select);
+                $results = $row->fetchAll(PDO::FETCH_ASSOC);
+                if ($results) {
+                    foreach ($results as $res) {
+                        $_SESSION['id_rec'][] = $res["id_rec"];
+                        $note_globale = $res["note"];
+                        $nombre_avis = $res["nombre_avis"];
+                    }
+                }
+                $nmbr_avis_maj = $nombre_avis + 1;
+                $note = ($note_globale * $nombre_avis + $nombre_étoiles) / $nmbr_avis;
+                $sql_update = "UPDATE recette SET note=?, nombre_avis=? WHERE id_rec=?;";
+                $pdo->prepare($sql_update)->execute([$note, $nmbr_avis, $_SESSION['id_rec']]);
+                } */
+            ?>
     </div>
 
     <!-- Div description de la recette -->
