@@ -19,8 +19,8 @@
     <body>
         <?php 
         session_start(); 
-        include('entete.php'); 
         $i=$_POST['i'];
+        include('entete.php'); 
         ?>
 
         <!-- Div titre et image -->
