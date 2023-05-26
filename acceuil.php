@@ -146,7 +146,7 @@ if (isset($_SESSION['log'])) {
         <br />
         <input type='image' src='".$_SESSION['image'][2]."' alt='Bouton d'image' /> 
        " ?>
-            <h3 class="card-title"><?php echo $_SESSION['description'][2] ?></h3>
+            <h3 class="card-title"><?php echo $_SESSION['nom'][2] ?></h3>
             <p class="card-text"><?php echo $_SESSION['description'][2] ?></p>
           </div>
         </div>
