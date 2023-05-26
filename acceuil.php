@@ -98,32 +98,66 @@ if (isset($_SESSION['log'])) {
       }
 
       $processedIds[] = $idRec;
-
-      echo "
-
-      <div class='row' style='padding-bottom: 10px;'>
-      
-      
-        <div class='col-4'>
-          <div class='card' style = 'margin-left: 5px;'>
-            <div class='card-body'>
-              <h3 class='card-title' style='border-bottom: 1px solid silver;''>".$_SESSION['nom'][$i]."</h3>
-              <form action='affichage_details_recette.php' method='post'>
-        <input type='hidden' name='i' value=".$i.">
-              <br />
-              <input type='image' src='".$_SESSION['image'][$i]."' alt='Bouton d'image' />
-          </form>
-              <p class='card-text'>".$_SESSION['description'][$i]."</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-      ";
     }
   }
 
   ?>
+
+
+
+  <div style="margin-top: 50px;">
+
+    <!-- Div des card pour recette du jour, recette la mieux notée, etc  (page d'acceuil) !-->
+    <div class="row">
+      <div class="col-4">
+        <div class="card" style="margin-left: 5px;">
+          <div class="card-body">
+            <h3 class="card-title" style="border-bottom: 1px solid silver;">Recette du jour</h3>
+            <?php echo "<form action='affichage_details_recette.php' method='post'>
+              <input type='hidden' name='i' value=0>
+        <br />
+        <input type='image' src='".$_SESSION['image'][0]."' alt='Bouton d'image' /> 
+        </form>
+       " ?>
+            <h3 class="card-title"><?php echo $_SESSION['nom'][0] ?></h3>
+            <p class="card-text"><?php echo $_SESSION['description'][0] ?></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title" style="border-bottom: 1px solid silver;">Recette populaire</h3>
+            <?php echo "<form action='affichage_details_recette.php' method='post'>
+            <input type='hidden' name='i' value=1>
+        <br />
+        <input type='image' src='".$_SESSION['image'][1]."' alt='Bouton d'image' /> 
+        </form>
+       " ?>
+            <h3 class="card-title"><?php echo $_SESSION['nom'][1] ?></h3>
+            <p class="card-text"><?php echo $_SESSION['description'][1] ?></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="card" style=" margin-right: 5px; ">
+          <div class="card-body">
+            <h3 class="card-title" style="border-bottom: 1px solid silver;">Recette aléatoire</h3>
+            <?php echo "<form action='affichage_details_recette.php' method='post'>
+            <input type='hidden' name='i' value=2>
+        <br />
+        <input type='image' src='".$_SESSION['image'][2]."' alt='Bouton d'image' /> 
+        </form> 
+       " ?>
+            <h3 class="card-title"><?php echo $_SESSION['nom'][2] ?></h3>
+            <p class="card-text"><?php echo $_SESSION['description'][2] ?></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 
