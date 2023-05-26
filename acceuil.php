@@ -15,6 +15,7 @@ if (isset($_SESSION['log'])) {
 
 <head>
   <title>acceuil</title>
+  <meta charset="utf-8">
 </head>
 
 <body>

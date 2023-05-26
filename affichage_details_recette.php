@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang=fr>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,7 +58,7 @@
             <h5> <?php echo $_SESSION['cout'][$i] ?> </h5>
 
             <h4>  Preparation : </h4>
-            <h5> <?php echo $_SESSION['preparation'][$i] ?> </h5>
+            <h5> <?php echo utf8_encode ($_SESSION['preparation'][$i] ) ?>  </h5>
 
             <h4>  Note : </h4>
             <h5> <?php echo $_SESSION['note'][$i] ?> </h5>
