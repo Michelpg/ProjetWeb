@@ -114,9 +114,10 @@ if (isset($_SESSION['log'])) {
           <div class="card-body">
             <h3 class="card-title" style="border-bottom: 1px solid silver;">Recette du jour</h3>
             <?php echo "<form action='affichage_details_recette.php' method='post'>
-              <input type='hidden' name='i' value=".$i.">
+              <input type='hidden' name='i' value=0>
         <br />
         <input type='image' src='".$_SESSION['image'][0]."' alt='Bouton d'image' /> 
+        </form>
        " ?>
             <h3 class="card-title"><?php echo $_SESSION['nom'][0] ?></h3>
             <p class="card-text"><?php echo $_SESSION['description'][0] ?></p>
@@ -128,9 +129,10 @@ if (isset($_SESSION['log'])) {
           <div class="card-body">
             <h3 class="card-title" style="border-bottom: 1px solid silver;">Recette populaire</h3>
             <?php echo "<form action='affichage_details_recette.php' method='post'>
-            <input type='hidden' name='i' value=".$i.">
+            <input type='hidden' name='i' value=1>
         <br />
         <input type='image' src='".$_SESSION['image'][1]."' alt='Bouton d'image' /> 
+        </form>
        " ?>
             <h3 class="card-title"><?php echo $_SESSION['nom'][1] ?></h3>
             <p class="card-text"><?php echo $_SESSION['description'][1] ?></p>
@@ -142,11 +144,12 @@ if (isset($_SESSION['log'])) {
           <div class="card-body">
             <h3 class="card-title" style="border-bottom: 1px solid silver;">Recette aléatoire</h3>
             <?php echo "<form action='affichage_details_recette.php' method='post'>
-            <input type='hidden' name='i' value=".$i.">
+            <input type='hidden' name='i' value=2>
         <br />
         <input type='image' src='".$_SESSION['image'][2]."' alt='Bouton d'image' /> 
+        </form> 
        " ?>
-            <h3 class="card-title"><?php echo $_SESSION['description'][2] ?></h3>
+            <h3 class="card-title"><?php echo $_SESSION['nom'][2] ?></h3>
             <p class="card-text"><?php echo $_SESSION['description'][2] ?></p>
           </div>
         </div>

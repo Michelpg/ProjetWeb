@@ -52,14 +52,14 @@ if (isset ($_SESSION['log']))
                     ";}?>
                     <?php if (!empty($log)) {echo "
                     <li class='nav-item'>
-                        <a class='nav-link' href='deco.php'>Deconexion</a>
+                        <a class='nav-link' href='deco.php'>Deconnexion</a>
                     </li>
                      <li class='nav-item dropdown'>
                         <a class='nav-link dropdown-toggle' href='#' id='dropdownId' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Mon compte</a>
                         <div class='dropdown-menu' aria-labelledby='dropdownId'>
                             <a class='dropdown-item' href='favoris.php'>Favoris</a>
                             <a class='dropdown-item' href='mes_recettes.php'>Mes recettes</a>
-                            <a class='dropdown-item' href='form_nouvelle_recette.php'>Nouvelles recettes</a>
+                            <a class='dropdown-item' href='form_nouvelle_recette.php'>Nouvelle recette</a>
                         </div>
                     </li>";}?>
                 </ul>
