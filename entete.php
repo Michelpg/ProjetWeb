@@ -39,6 +39,14 @@ if (isset ($_SESSION['log']))
                     <li class="nav-item">
                         <a class="nav-link active" href="acceuil.php" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
                     </li>
+                    <?php if (empty($log)) {echo "
+                    <li class='nav-item'>
+                        <a class='nav-link' href='form_auth.php'>Se connecter</a>
+                    </li>
+                    <li class='nav-item'>
+                        <a class='nav-link' href='form_Inscription.php'>S'inscrire</a>
+                    </li>
+                    ";}?>
                     <?php if (!empty($log)) {echo "
                     <li class='nav-item'>
                         <a class='nav-link' href='deco.php'>Deconnexion</a>
