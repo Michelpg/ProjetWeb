@@ -1,8 +1,8 @@
 <?php session_start(); 
 require("formconn.inc.php");
-$i=$_POST['i'];
+$i=$_GET['i'];
 $id_user=$_SESSION['user'];
-$id_rec=$_POST['id_rec'];
+$id_rec=$_GET['id_rec'];
 $select_query = "DELETE FROM favori WHERE `favori`.`id_rec` = '$id_rec' AND favori.id_uti='$id_user';";
 $res = $pdo->query($select_query);
 $res->setFetchMode(PDO::FETCH_ASSOC);
