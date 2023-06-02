@@ -6,8 +6,6 @@ var toutesLesEtoiles = $('.stars .star');
 // toutesLesEtoiles.click(onStarClick)
 toutesLesEtoiles.click(onStarClick);
 
-const mysql = require('mysql2');
-
 // On gère ce qui se passe lors du clic d'une étoile
 function onStarClick(event) {
 
@@ -17,7 +15,7 @@ function onStarClick(event) {
 
     // On récupère son index ("Quelle étoile a été cliquée ?") depuis sont attribut data-index
     var indexCliqué = etoileCliquée.data("index");
-    // console.log(indexCliqué);
+    console.log(indexCliqué);
 
     // On récupère son parent (afin de rendre ça réutilisable pour d'autres groupes)
     var parent = $(this).parent();
@@ -37,6 +35,8 @@ function onStarClick(event) {
         etoile.addClass('yellow');
         etoile.removeClass('stargrey');
     }
+
+    
 
     // la partie bdd ne fonctionne pas, il y a sûrement un import à faire pour mysql :: surement remplacé par ajax (plus simple)
 
