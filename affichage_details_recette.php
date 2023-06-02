@@ -58,30 +58,28 @@
 
             <input type="hidden" id="myInteger" value="<?php echo $_SESSION['id_rec']; ?>">
 
-            <script>
-                export var id_rec = parseInt(document.getElementById('myInteger').value);
-            </script>
-
             <?php
-            /* if (isset($_POST['nombre_étoiles'])) {
-                $nombre_étoiles = $_POST['nombre_étoiles'];
+            if (isset($_POST['index'])) {
+                $nombre_étoiles = $_POST['index'];
+
+                echo $nombre_étoiles;
+
                 $id_rec_requete = $_SESSION['id_rec'][$i];
-                $sql_select = "SELECT nombre_avis, note FROM recette WHERE id_rec = ? VALUES ($id_rec_requete);";
+                $sql_select = "SELECT nombre_avis, note FROM recette WHERE id_rec = $id_rec_requete;";
 
                 $row = $pdo->query($sql_select);
                 $results = $row->fetchAll(PDO::FETCH_ASSOC);
                 if ($results) {
                     foreach ($results as $res) {
-                        $_SESSION['id_rec'][] = $res["id_rec"];
                         $note_globale = $res["note"];
                         $nombre_avis = $res["nombre_avis"];
                     }
                 }
-                $nmbr_avis_maj = $nombre_avis + 1;
-                $note = ($note_globale * $nombre_avis + $nombre_étoiles) / $nmbr_avis;
+                $nombre_avis ++;
+                $note = ($note_globale * ($nombre_avis-1) + $nombre_étoiles) / $nombre_avis;
                 $sql_update = "UPDATE recette SET note=?, nombre_avis=? WHERE id_rec=?;";
-                $pdo->prepare($sql_update)->execute([$note, $nmbr_avis, $_SESSION['id_rec']]);
-                } */
+                $pdo->prepare($sql_update)->execute([$note, $nombre_avis, $id_rec_requete]);
+            }
             ?>
     </div>
 
