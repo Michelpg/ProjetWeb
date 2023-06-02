@@ -56,8 +56,6 @@
             <h4> Note : </h4>
             <h5> <?php echo $_SESSION['note'][$i] ?>/5 </h5>
 
-            <input type="hidden" id="myInteger" value="<?php echo $_SESSION['id_rec']; ?>">
-
             <?php
             if (isset($_POST['index'])) {
                 $nombre_étoiles = $_POST['index'];
@@ -75,8 +73,8 @@
                         $nombre_avis = $res["nombre_avis"];
                     }
                 }
-                $nombre_avis ++;
-                $note = ($note_globale * ($nombre_avis-1) + $nombre_étoiles) / $nombre_avis;
+                $nombre_avis++;
+                $note = ($note_globale * ($nombre_avis - 1) + $nombre_étoiles) / $nombre_avis;
                 $sql_update = "UPDATE recette SET note=?, nombre_avis=? WHERE id_rec=?;";
                 $pdo->prepare($sql_update)->execute([$note, $nombre_avis, $id_rec_requete]);
             }
